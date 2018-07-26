@@ -10,10 +10,16 @@ class TodoApp extends React.Component{
       todos: []
     };
   }
+  todoXClick(index){
+    console.log(dummyData);
+    dummyData.splice(index, 1);
+    console.log(dummyData);
+    this.setState({
+      todos: dummyData
+    })
+  }
   addTodo(e, task){
-
     dummyData.push({taskText: task, completed:false});
-    console.log(this)
     this.setState({
       todos: dummyData
     })
@@ -26,7 +32,7 @@ class TodoApp extends React.Component{
   render(){
     return(<div>
       <InputLine submit={(e, task)=>this.addTodo(e, task)}/>
-      <TodoList todos={this.state.todos}/>
+      <TodoList todoXClick={(index)=>this.todoXClick(index)} todos={this.state.todos}/>
     </div>)
   }
 }

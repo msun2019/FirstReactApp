@@ -5,13 +5,13 @@ class Todo extends React.Component{
       this.props.task.completed ?
         (<strike>
           <li>
-            <button>X</button>
+            <button onClick={() => this.props.xClick()}>X</button>
             {this.props.task.taskText}
           </li>
         </strike>)
       : (
         <li>
-          <button>X</button>
+          <button onClick={() => this.props.xClick()}>X</button>
           {this.props.task.taskText}
         </li>
       )
